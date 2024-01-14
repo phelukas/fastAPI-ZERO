@@ -27,6 +27,7 @@ def create_access_token(data: dict):
     )
     return encoded_jwt
 
+
 def get_password_hash(password: str):
     return pwd_context.hash(password)
 
@@ -49,7 +50,9 @@ async def get_current_user(
     )
 
     try:
-        payload = jwt.decode(token, settings.SECRET_KEY, algorithms=[settings.ALGORITHM])
+        payload = jwt.decode(
+            token, settings.SECRET_KEY, algorithms=[settings.ALGORITHM]
+        )
         username: str = payload.get('sub')
         if not username:
             raise credentials_exception
