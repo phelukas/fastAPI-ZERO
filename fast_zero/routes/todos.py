@@ -9,8 +9,7 @@ from fast_zero.models import Todo, User
 from fast_zero.schemas import TodoList, TodoPublic, TodoSchema
 from fast_zero.security import get_current_user
 
-router = APIRouter()
-
+Session = Annotated[Session, Depends(get_session)]
 CurrentUser = Annotated[User, Depends(get_current_user)]
 
 router = APIRouter(prefix='/todos', tags=['todos'])
