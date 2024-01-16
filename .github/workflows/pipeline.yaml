@@ -10,3 +10,9 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: '3.11.1'
+
+      - name: Instalar dependências
+        run: pip install --quiet -r requirements.txt
+
+      - name: Executar testes
+        run: pytest -s -x --cov=fast_zero -vv
