@@ -14,6 +14,5 @@ RUN pip install --quiet -r requirements.txt
 
 # Alterar permissões do entrypoint.sh para garantir que seja executável
 RUN chmod +x ./entrypoint.sh
-
 EXPOSE 8000
 CMD ["uvicorn", "--host", "0.0.0.0", "fast_zero.app:app"]
